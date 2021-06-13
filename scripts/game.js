@@ -54,6 +54,7 @@ class Game {
             // 判断小鸟是否与大地相撞
             if (this.isGameover()) {
                 this.gameover = true;
+
                 this.stop();
                 console.log('游戏结束')
             }
@@ -81,13 +82,18 @@ class Game {
         this.bird.stopSwiper();
         clearInterval(this.startTimer);
         this.startTimer = null;
-        if (this.gameover) {
-            this.score = this.pipePair.destoryPipe;
-            if (this.pipePair.pipes.length !== 0 && this.pipePair.pipes[0].downPipe.left < this.bird.left) {
-                this.score += 1;
-            }
-            alert(`您的总得分：${this.score}`);
+        this.calcScore();
+    }
+
+    //计算分数并显示
+    calcScore() {
+        var end = document.getElementsByClassName('end')[0];
+        end.style.display = 'flex';
+        this.score = this.pipePair.destoryPipe;
+        if (this.pipePair.pipes.length !== 0 && this.pipePair.pipes[0].downPipe.left < this.bird.left) {
+            this.score += 1;
         }
+        document.getElementsByClassName('score')[0].innerText = this.score;
     }
 
     // 判断游戏是否结束,小鸟碰到柱子或者大地，返回boolean

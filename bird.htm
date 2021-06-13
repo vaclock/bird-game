@@ -15,6 +15,9 @@
         </div>
         <div class="bird swiper1"></div>
         <div class="land"></div>
+        <div class="end">
+            游戏结束,您的总得分为:<span class="score"></span>
+        </div>
     </div>
     <p>回车键开始/暂停，空格键跳跃</p>
     <script src="./scripts/uber.js"></script>
@@ -23,15 +26,6 @@
     <script src="./scripts/bird.js"></script>
     <script src="./scripts/pipe.js"></script>
     <script src="./scripts/game.js"></script>
-    <script>
-        const p1 = new Promise((resolve, reject)=>{
-            console.log(11);
-            resolve(1);
-        });
-
-        console.log(p1);
-        setTimeout(()=>console.log(p1), 200)
-    </script>
 </body>
 
 </html>
