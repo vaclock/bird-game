@@ -54,7 +54,7 @@ class Game {
             // 判断小鸟是否与大地相撞
             if (this.isGameover()) {
                 this.gameover = true;
-
+                this.calcScore();
                 this.stop();
                 console.log('游戏结束')
             }
@@ -82,7 +82,6 @@ class Game {
         this.bird.stopSwiper();
         clearInterval(this.startTimer);
         this.startTimer = null;
-        this.calcScore();
     }
 
     //计算分数并显示
